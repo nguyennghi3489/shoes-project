@@ -38,10 +38,10 @@ const isInteractive = process.stdout.isTTY;
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
-
+// new from feature
 // Tools like Cloud9 rely on this.
-const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
-const HOST = process.env.HOST || '0.0.0.0';
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 300;
+const HOST = process.env.HOST || '0.0.0.0';      
 
 // We attempt to use the default port but if it is busy, we offer the user to
 // run on a different port. `detect()` Promise resolves to the next free port.
