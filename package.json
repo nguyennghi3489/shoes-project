@@ -1,0 +1,14 @@
+{
+  "name": "shoes-project",
+  "version": "1.0.0",
+  "description": "shoes project contain webs and admin to manage shoes shop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nguyen Nghi (nguyennghi3489@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.5.8"
+  }
+}
