@@ -9,6 +9,7 @@
   "author": "Nguyen Nghi (nguyennghi3489@gmail.com)",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "mongoose": "^4.5.8"
   }
 }

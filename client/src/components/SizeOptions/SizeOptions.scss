@@ -1,0 +1,35 @@
+.SizeOptions {
+    margin: 10px 0 20px;
+    p {
+        display: inline-block;
+        line-height: 30px;
+        float: left;
+        margin-right: 5px;
+        font-weight: bold;
+        width: 50px;
+        font-size: 14px;
+    }
+    ul {
+        display: inline-block;
+        box-sizing: border-box;
+        float: left;
+        li {
+            width:30px;
+            height: 30px;
+            background: #2075bb;
+            color: white;
+            border: 1px solid #4282b9;
+            box-sizing: border-box;
+            margin-right: 1px;
+            float: left;
+            font-size: 15px;
+            line-height: 30px;
+            text-align: center;
+        }
+    }
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}

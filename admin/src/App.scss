@@ -1,0 +1,229 @@
+@import 'foundation';
+@include foundation-table;
+@include foundation-grid;
+@include foundation-global-styles;
+@import './scss/base.scss';
+@import './scss/color.scss';
+
+
+html, body {
+  height: 100%;
+  >div {
+    height: 100%;
+  }
+  p {
+    font-size: 14px;
+    margin: 0 0 0.25em;
+  }
+}
+i {
+  margin-right: 5px;
+}
+/*button {
+  padding: 10px 20px;
+  border: 1px solid $aquaColor;
+  color:$aquaColor;
+  border-radius: 20px;
+  margin: 0 10px;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    background: $aquaColor;
+    color: white;
+  }
+  &.float-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &.tool {
+    border-radius: 15px;
+    margin-left: 0;
+    font-size: 22px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-color: #aaa;
+    color: #aaa;
+    font-weight: bold;
+    &:hover {
+      background: #aaa;
+      color: white;
+    }
+  }
+  &.create-new {
+    border-color: #c166ec;
+    background:none;
+    color: #c166ec;
+    float: right;
+    &:hover {
+      background: #c166ec;
+      color:white;
+    }
+  }
+}
+*/
+.mainWrapper {
+  height: 100%;
+  > main {
+    max-width: 100%;
+    height: calc(100% - 60px);
+    > aside {
+      // height: 100%;
+      // background: $darkGrayColor;
+    }
+    > .content-wrapper {
+      position: relative;
+      height: 100%;
+      .system-container {
+        padding: 10px;
+
+        > .sytem-row {
+          position: relative;
+          
+          .control-column {
+            position: absolute;
+            right: 0;
+            top: 0;
+            input, button {
+              display: block;
+              float: left;
+              width: auto;
+            }
+            input {
+              width: 200px;
+              height: 35px;
+              border-radius: 10px;
+            }
+          }
+        }
+
+        > .heading-row {
+          padding-bottom: 10px;
+          margin-bottom: 20px;
+          border-bottom: 1px solid #ddd;
+        }
+
+        > .tool-row {
+          margin-bottom: 10px;
+          button {
+            margin-left: 0;
+          }
+        }
+        .row {
+          margin-bottom: 20px;
+          a {
+            padding: 0.7rem 1rem;
+            display: block;
+            line-height: 1;
+          }
+        }
+      }
+      .table-container {
+        table {
+          border:0;
+          background: #ddd;
+          >tbody {
+            border: 0;
+            td {
+              border-bottom: 1px solid #ddd;
+              padding:20px 0;
+              font-size: 14px;
+              
+              > i {
+                margin-right: 10px;
+                padding-left: 10px;
+              }
+              &.title{
+                color: $aquaColor;
+                font-weight: bold;
+              }
+              &.category {
+                font-weight:bold;
+              }
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+      .list-container {
+        > ul {
+          margin: 0;
+          padding: 0;
+          border:0;
+            li {
+              border-bottom: 1px solid #ddd;
+              padding:20px 0;
+              font-size: 14px;
+              align-items: center;
+              display: flex;
+              justify-content: space-between;
+              .title{
+                color: $aquaColor;
+                font-weight: bold;
+                width: 140px;
+                white-space: nowrap; 
+                overflow: hidden;
+                text-overflow: ellipsis; 
+              
+                > i {
+                  margin-right: 10px;
+                  padding-left: 10px;
+                }
+              }
+              >.actions-column{
+                float:right;
+              }
+            }
+        }
+      }
+    }
+  }
+}
+
+
+/// Popup Management
+.normal-popup-container {
+  min-width: 500px;
+  h3 {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 20px;
+  }
+  button[type=submit]{
+    margin-top:20px;
+    float: right;
+  }
+}
+.normal-long-popup-container {
+  min-width: 500px;
+  max-height:600px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding-right:20px;
+  h3 {
+      margin: 0 0 20px;
+  }
+  button[type=submit]{
+    margin-top:20px;
+    float: right;
+  }
+}
+
+/// Alignment support class
+.right-control{ 
+  text-align: right;
+}
+
+
+/// Support small styling suff
+.clickable {
+  cursor: pointer;
+  color: #c166ec;
+}
+.always-show{
+  display: block !important;
+}

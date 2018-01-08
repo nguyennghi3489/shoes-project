@@ -1,0 +1,10 @@
+.customer-select-box {
+    position: relative;
+    .customer-list {
+        top:40px;
+        position: absolute;
+        background: white;
+        width:50%;
+        z-index: 1000;
+    }
+}

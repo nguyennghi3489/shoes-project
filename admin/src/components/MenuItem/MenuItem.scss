@@ -1,0 +1,14 @@
+.menu-item{
+    border: 1px solid #ddd;
+    background: white;
+    text-align: center;
+    > a {
+        > i{
+            font-size: 30px;
+        }
+        > p{
+            margin: 0;
+            font-size:14px;
+        }
+    }
+}

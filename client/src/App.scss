@@ -1,0 +1,100 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Product-Detail-wrapper {
+  .Product-Detail {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+    color: white;
+    // font-family: $RoundoLight;
+    .Product-Info {
+    }
+    .Product-Image {
+    }
+  }
+}
+
+.product-list {
+  max-width: 960px;
+  margin: 0 auto;
+  .product-item {
+    position: relative;
+    background: #f5f5f5;
+    box-shadow: 1px 1px 8px #ddd;
+    padding: 20px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    > .logo {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+    }
+    img {
+      width: 80%;
+      float: right;
+      &.duplicate-style {
+        position: absolute;
+        width: 700px;
+        opacity: 0.2;
+        top:-220px;
+        left: 50px;
+      }
+    }
+    .image-wrapper { 
+    }
+    .info-wrapper {
+      position: absolute;
+      right: 0;
+      top:50%;
+      transform: translateY(-50%);
+      text-align: left;
+      h4 {
+        color:#2075bb;
+        font-weight: bolder;
+        margin-bottom: 0;
+        font-size: 30px;
+      }
+      i {
+        color: #ccc;
+        font-size: 13px;
+      }
+      p {
+        &.price {
+          font-size: 20px;
+          margin: 15px 0;
+        }
+      }
+      button {
+        margin-top: 10px;
+        font-size: 20px;
+        border-radius: 40px;
+        padding: 15px 20px;
+      }
+    }
+  }
+}

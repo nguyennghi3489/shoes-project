@@ -1,0 +1,28 @@
+@import '../../scss/color.scss';
+
+.admin-item {
+    overflow:hidden;
+    border-bottom: 1px solid #ddd;
+    padding:10px 0;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    
+    &.selected {
+        color: $aquaColor;
+    }
+    p {
+        display: inline-block;
+        margin: 0;
+    }
+    .controls {
+        display: inline-block;
+        button {
+            background: #ccc;
+            margin-left:5px;
+            padding:0;
+        }
+    }
+    margin-bottom:2px;
+}

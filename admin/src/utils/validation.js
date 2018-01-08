@@ -1,0 +1,1 @@
+const isNameValid = name => name.trim().length >= 6

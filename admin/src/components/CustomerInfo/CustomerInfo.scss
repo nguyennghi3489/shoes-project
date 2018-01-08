@@ -1,0 +1,19 @@
+@import '../../scss/color.scss';
+.customer-info {
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 20px 0;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    div {
+        h4 {
+            color: $aquaColor;
+        }
+        canvas {
+        }
+        table {
+            td, th {
+                text-align: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.Thumbnails {
+    position: absolute;
+    top:100px;
+    width: 70px;
+    ul {
+    padding-right: 10px;
+        li {
+            border: 1px solid #eee;
+            overflow: hidden;
+            margin-bottom: 5px;
+            img {
+                width: 100%;
+            }
+            &.active {
+                border: 1px solid #ccc;
+            }
+        }
+        height: 270px;
+        overflow: auto;
+    }
+}
