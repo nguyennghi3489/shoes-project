@@ -1,0 +1,13 @@
+.variant-input {
+    display: flex;
+    flex-wrap:wrap;
+    >div{
+        display: inline-block;
+    }
+    input {
+        flex-basis: 15ch;
+        width: 100%;
+        display: block;
+        flex-grow:1;
+    }
+}

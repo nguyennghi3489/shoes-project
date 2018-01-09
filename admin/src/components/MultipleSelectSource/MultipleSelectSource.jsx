@@ -30,19 +30,21 @@ class MultipleSelectSource extends Component {
     }
 
     render() {
-        const { currentProduct, facetOptionList, selectedItem } = this.props
-        console.log(currentProduct.facets)
+        const { currentProduct, facetOptionList, editState, selectedItem } = this.props
         return <div>
             { currentProduct.facets.map((facet ,index)=> {
                 const list = facetOptionList.filter( (subItem, index) => facet._id === subItem.facetId )
-                const selectedSelectSource = list.filter ( (subItem ) => selectedItem.indexOf(subItem._id) != -1 ).map(item=>item._id)[0]
+                const selectedSelectSource = list.filter ( (subItem ) => selectedItem.indexOf(subItem._id) !== -1 )
+                console.log("UPDATE VARIANT")
+                console.log(facetOptionList)
                 console.log(list)
                 console.log(currentProduct.facets)
                 console.log(selectedSelectSource)
                 console.log(selectedItem)
+                console.log('-----------------------------')
                 return <div key={index}>
                     <label>{facet.name}
-                        <SelectSource selectedItem={selectedSelectSource} editState={false} key={index} dataSource={list} showField='name' name='facetOption' value={this.state.facetOption} onChange={ (event) => this.handleChange(event, index)} />
+                        <SelectSource editState={editState} selectedItem={selectedSelectSource} key={index} dataSource={list} showField='name' name='facetOption' value={this.state.facetOption} onChange={ (event) => this.handleChange(event, index)} />
                     </label>
                 </div>
             })}

@@ -13,7 +13,6 @@ class NewVariant extends Component {
     state = {
         validation: null,
         name: '',
-        desc:'',
         facetOptionIds: [],
         facetIds: []
     }
@@ -29,8 +28,6 @@ class NewVariant extends Component {
     }
     
     handleFacetOptionChange = (value) => {
-        console.log(value)
-        console.log('add new')
         this.setState({facetOptionIds: value});
     }
 
@@ -45,15 +42,11 @@ class NewVariant extends Component {
                 <h3>New Variant</h3>
                 <Form>
                     <Form.Field>
-                        <label>Variant Name</label>
+                        <label>Variant Name (Optional)</label>
                         <input type="text" name='name' value={this.state.name} onChange={this.handleChange} placeholder=".medium-6.columns" />
                     </Form.Field>
                     <Form.Field>
-                        <label>Variant Description</label>
-                        <input type="text" name='desc' value={this.state.desc} onChange={this.handleChange} placeholder=".medium-6.columns" />
-                    </Form.Field>
-                    <Form.Field>
-                        <MultipleSelectSource currentProduct={currentProduct} selectedItem={this.state.facetOptionIds} facetOptionList={facetOptionList} onChange={this.handleFacetOptionChange} />
+                        <MultipleSelectSource editState={false} currentProduct={currentProduct} selectedItem={this.state.facetOptionIds} facetOptionList={facetOptionList} onChange={this.handleFacetOptionChange} />
                     </Form.Field>
                     <Button type='submit' className='primary' onClick={() => addNew(this.state, currentProduct)}>Submit</Button>
                 </Form>

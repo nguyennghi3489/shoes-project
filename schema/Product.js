@@ -5,7 +5,7 @@ var ProductSchema = new mongoose.Schema({
     desc: String,
     category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
     facets : [{type: mongoose.Schema.Types.ObjectId, ref: 'Facet'}],
-    isVariant : Boolean
+    hasVariants : Boolean
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

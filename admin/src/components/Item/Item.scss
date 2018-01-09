@@ -2,10 +2,9 @@
 
 .admin-item {
     overflow:hidden;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #eee;
     padding:10px 0;
     font-size: 16px;
-    display: flex;
     justify-content: space-between;
     font-weight: bold;
     
@@ -13,11 +12,12 @@
         color: $aquaColor;
     }
     p {
-        display: inline-block;
+        display: block;
         margin: 0;
     }
     .controls {
-        display: inline-block;
+        display: block;
+        padding:5px 0;
         button {
             background: #ccc;
             margin-left:5px;

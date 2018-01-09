@@ -11,7 +11,6 @@ class VariantList extends Component {
     }
 
     selectItem = (item) => {
-        console.log(item)
         this.setState({currentItem: item})
     }
 
@@ -20,17 +19,17 @@ class VariantList extends Component {
     }
     render() {
         const { itemList, deleteItem, facetOptionList, currentProduct } = this.props
+        console.log("Variant list")
+        console.log(facetOptionList)
         return (
             <div className='normal-popup-container variant-list'>
                 { !this.state.currentItem && <div>
-                    <h3>Facet Option List</h3>
-                    <ul>
+                    <h3>Variant List</h3>
+                    <table>
                         { itemList.map((item, index) => (
-                            <li key={index}>
-                                <Item item={item} editItem={this.selectItem} deleteItem={deleteItem} />
-                            </li>
+                            <Item key={index} type='variant' facetOptionList={facetOptionList} item={item} editItem={this.selectItem} deleteItem={deleteItem} />
                         ))}
-                    </ul>
+                    </table>
                 </div> }
                 { this.state.currentItem && <UpdateVariant update={this.updateVariant} facetOptionList={facetOptionList} currentProduct={currentProduct} currentItem={this.state.currentItem}/> }
             </div>

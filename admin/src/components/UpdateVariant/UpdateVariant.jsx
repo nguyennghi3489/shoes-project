@@ -11,7 +11,9 @@ export default class UpdateVariant extends Component {
     constructor(props) {
         super(props);
         const { currentItem } = this.props
-        const currentVariantFacetOptions = currentItem.facetOptions.map(item=>item._id)
+        console.log("UPDATE VIE")
+        console.log(currentItem)
+        // const currentVariantFacetOptions = currentItem.facetOptions.map(item=>item._id)
         this.state = {
             validation: null,
             id : currentItem._id,
@@ -23,13 +25,13 @@ export default class UpdateVariant extends Component {
 
     componentWillReceiveProps(nextProps){
         const { currentItem } = nextProps
-        const currentVariantFacetOptions = currentItem.facetOptions.map(item=>item._id)
+        // const currentVariantFacetOptions = currentItem.facetOptions.map(item=>item._id)
         this.state = {
             validation: null,
             id : currentItem._id,
             name: currentItem.name,
             desc:currentItem.desc,
-            facetOptionIds: currentItem.facetOptions
+            facetOptionIds: currentItem.facetOption
         };
     }
     handleChange = (event) => {
@@ -52,7 +54,7 @@ export default class UpdateVariant extends Component {
 
     render() {
         const { update, facetOptionList, currentItem, currentProduct } = this.props
-
+        console.log(this.state)
         return (
             <div className='normal-long-popup-container'>
                 <h3>Update Variant</h3>
@@ -66,7 +68,7 @@ export default class UpdateVariant extends Component {
                         <input type="text" name='desc' value={this.state.desc} onChange={this.handleChange} placeholder=".medium-6.columns" />
                     </Form.Field>
                     <Form.Field>
-                        <MultipleSelectSource currentProduct={currentProduct} selectedItem={this.state.facetOptionIds} facetOptionList={facetOptionList} onChange={this.handleFacetOptionChange} />
+                        <MultipleSelectSource editState={true} currentProduct={currentProduct} selectedItem={this.state.facetOptionIds} facetOptionList={facetOptionList} onChange={this.handleFacetOptionChange} />
                     </Form.Field>
                     <div className="ui buttons right floated">
                         <button className="ui button">Cancel</button>

@@ -67,6 +67,7 @@ routes.get('/api/facetOption', function (req, res) {
         if (err) {
             res.json({ message: err.message })  
         }
+        console.log(facetOption)
         res.json({ data: facetOption, success: true })
         // removed!
       });

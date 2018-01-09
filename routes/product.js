@@ -12,7 +12,7 @@ routes.post('/api/product', function (req, res) {
         desc : req.body.desc,
         category : req.body.categoryId || null,
         facets : req.body.facetIds || [],
-        isVariant : req.body.facetIds.length > 0 ? false : true
+        hasVariants : req.body.hasVariants || false
     }
     var product = new Product(data);
     product.save(function (err) {
@@ -29,13 +29,6 @@ routes.post('/api/product', function (req, res) {
 })
 
 routes.get('/api/product', function (req, res) {
-    // Product.find().
-    // populate('category').
-    // populate('facets').
-    // exec(function (err, product) {
-    //   if (err) return handleError(err);
-    //   res.json({ data: product, success: true })
-    // });
     Product.aggregate([
         {
             $lookup:
@@ -114,7 +107,7 @@ routes.put('/api/product', function (req, res) {
             product.desc = req.body.desc || product.desc
             product.category = req.body.categoryId || product.category
             product.facets = req.body.facetIds || product.facets
-            product.isVariant = req.body.facetIds.length > 0 ? false : true
+            product.hasVariants = req.body.hasVariants || false
             product.save(function (err, product) {
                 if (err) {
                     res.json({ message: err.message })  

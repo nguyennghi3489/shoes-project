@@ -28,6 +28,8 @@ class SelectSource extends Component {
 
     render() {
         const { dataSource, showField, selectedItem, editState, ...rest } = this.props
+        console.log("SELECT SOURCE")
+        console.log(editState)
         return editState ? (
             <select {...rest} disabled={!selectedItem} className="ui search dropdown" value={this.state.value} onChange={this.handleChange}>
                 {dataSource.map((item,index) => (

@@ -88,7 +88,7 @@ routes.get('/api/stock', function (req, res) {
                     input: "$item",
                     as: "item",
                     cond: { $or:  [  
-                        { $eq: [ "$$item.isVariant", true ] }
+                        { $eq: [ "$$item.hasVariants", true ] }
                     ] }
                     }
                 },

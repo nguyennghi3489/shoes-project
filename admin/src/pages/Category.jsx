@@ -67,6 +67,7 @@ class Category extends Component {
                     <tbody>
                         {categoryList.map((item, index)=> (
                             <tr key={index}>
+                                
                                 <td className="title"><i className={item.parentId?'ion-ios-circle-outline':'ion-ios-home-outline'} />{item.name}</td>
                                 <td>{item.parentId && item.parentId.name}</td>
                                 <td>

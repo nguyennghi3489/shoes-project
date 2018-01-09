@@ -59,7 +59,7 @@ export const addNewProduct = (data) => (dispatch) => {
         name: data.name,
         categoryId: data.categoryId,
         desc : data.desc,
-        facetIds: data.facetIds
+        hasVariants: data.hasVariants
     })
 
     fetch(`${process.env.API_URL}/api/product`, {

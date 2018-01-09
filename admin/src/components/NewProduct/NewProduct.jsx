@@ -20,7 +20,8 @@ class NewProduct extends Component {
         name: '',
         desc:'',
         categoryId: '',
-        facetIds: []
+        variantOption: [[]]
+        // facetIds: []
     }
 
     handleChange = (event) => {
@@ -29,6 +30,23 @@ class NewProduct extends Component {
         this.setState({[name]: value});
     }
 
+    handleTest = (e, item) => {
+        console.log(e.target.value)
+        console.log(this.state.variantOption)
+        console.log(item)
+        if (e.charCode === 13) {
+          console.log('Enter... (KeyPress, use charCode)');
+          item.push(e.target.value)
+          this.forceUpdate()
+        }
+    }
+
+    addNew = (e) => {
+        console.log("GO THERE -----------------")
+        this.state.variantOption.push([])
+        this.forceUpdate()
+    }    
+    
     onSelect = (selectedItems) => {
         this.setState({facetIds: selectedItems});
     }
@@ -41,7 +59,7 @@ class NewProduct extends Component {
         console.log(form)
         return (
             <div className='normal-long-popup-container'>
-                <h3>New Category</h3>
+                <h3>New Product</h3>
                 <Form>
                     <Form.Field>
                         <label>Product Name</label>
@@ -55,9 +73,43 @@ class NewProduct extends Component {
                         <label>Select Category</label>
                         <SelectSource editState={false} dataSource={categoryList} showField='name' name='categoryId' onChange={onChange} />
                     </Form.Field>
+
+                    <p onClick={this.addNew} >Add New Variants Type</p>
+                    <Form.Field>
+                        <label>Has Variants</label>
+                        <input type='checkbox' name='hasVariants' onChange={onChange} />
+                        This product has variants
+                        <br/>
+
+                        {this.state.variantOption.map((item,index)=>(
+                            <div key={index}>
+                            <SelectSource editState={false} dataSource={facetList} showField='name' name='facetId' onChange={this.handleChange} />
+                            <div className='variant-input'>
+                                { item.map((subItem,index)=>
+                                (
+                                    <div key={index}>New One</div>
+                                ))}
+                                <input type='text' onKeyPress={(e)=>this.handleTest(e,item)} onChange={()=>console.log("hello World")} />
+                            </div>
+                        </div>
+                        ))}
+                        
+                        {/* <div>
+                            <SelectSource editState={false} dataSource={facetList} showField='name' name='facetId' onChange={this.handleChange} />
+                            <div className='variant-input'>
+                                { this.state.variantOption.map(item=>
+                                (
+                                    <div>New One</div>
+                                ))}
+                                <input type='text' onKeyPress={this.handleTest} onChange={()=>console.log("hello World")} />
+                            </div>
+                        </div> */}
+
+                    </Form.Field>
+
                     <Form.Field>
                         <label>Pick Facets</label>
-                        <MultipleSelectBox selectedItems={form.facetIds} name='facetIds' onSelect={(data)=>onSelectMultiple(data,"facetIds")} dataSource={facetList}  />
+                        {/* <MultipleSelectBox selectedItems={form.facetIds} name='facetIds' onSelect={(data)=>onSelectMultiple(data,"facetIds")} dataSource={facetList}  /> */}
                     </Form.Field>
                     <Button type='submit' disabled={!isAvailable} className='primary' onClick={() => addNewProduct(form)}>Submit</Button>
                 </Form>
@@ -77,10 +129,10 @@ const validationRules = {
     categoryId: [
         [isNotEmptySelect, 'Name should not be  empty.']
     ],
-    facetIds: []
+    hasVariants: []
 }
 
-const initialState = {form: {name: '',desc:'',categoryId:'', facetIds:''}}
+const initialState = {form: {name: '',desc:'',categoryId:'', hasVariants:''}}
 
 const enhanced = HocValidate(initialState, validationRules)
 export default enhanced(NewProduct)
